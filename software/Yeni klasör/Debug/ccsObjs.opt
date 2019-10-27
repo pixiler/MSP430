@@ -1,0 +1,1 @@
+"./main.obj" "../esp8266/Debug/main.obj" "./esp8266/main.obj" "../uart2/Debug/main.obj" "./uart2/main.obj" "../lnk_msp430fr2433.cmd" "../esp8266/lnk_msp430fr2433.cmd" "../uart2/lnk_msp430fr2433.cmd" -llibmath.a -llibc.a 
