@@ -1,10 +1,10 @@
 ******************************************************************************
                   MSP430 Linker PC v18.12.3                    
 ******************************************************************************
->> Linked Sun Oct 27 20:26:40 2019
+>> Linked Mon Oct 28 17:25:48 2019
 
 OUTPUT FILE NAME:   <esp8266.out>
-ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 0000c5a4
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 0000c56e
 
 
 MEMORY CONFIGURATION
@@ -16,7 +16,7 @@ MEMORY CONFIGURATION
   PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
   INFOA                 00001800   00000200  00000000  00000200  RWIX
   RAM                   00002000   00001000  000000a1  00000f5f  RWIX
-  FRAM                  0000c400   00003b80  00000202  0000397e  RWIX
+  FRAM                  0000c400   00003b80  000001c8  000039b8  RWIX
   JTAGSIGNATURE         0000ff80   00000004  00000004  00000000  RWIX  ffff 
   BSLSIGNATURE          0000ff84   00000004  00000004  00000000  RWIX  ffff 
   INT00                 0000ff88   00000002  00000000  00000002  RWIX
@@ -107,21 +107,20 @@ section   page    origin      length       input sections
 .mspabi.extab 
 *          0    0000c412    00000000     UNINITIALIZED
 
-.const     0    0000c412    00000028     
-                  0000c412    00000028     main.obj (.const:.string)
+.const     0    0000c412    00000030     
+                  0000c412    00000030     main.obj (.const:.string)
 
-.text      0    0000c43a    000001c8     
-                  0000c43a    00000084     main.obj (.text:main)
-                  0000c4be    0000006a     rts430x_lc_sd_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit_hold_wdt:__TI_auto_init_nobinit_nopinit_hold_wdt)
-                  0000c528    0000003e     main.obj (.text:RxInput)
-                  0000c566    0000003e     rts430x_lc_sd_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
-                  0000c5a4    0000001c                            : boot.c.obj (.text:_isr:_c_int00_noargs)
-                  0000c5c0    00000018     main.obj (.text:_isr:USCI_A0_ISR)
-                  0000c5d8    00000016     main.obj (.text:UARTSendArray)
-                  0000c5ee    00000008     rts430x_lc_sd_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
-                  0000c5f6    00000006                            : exit.c.obj (.text:abort)
-                  0000c5fc    00000004                            : pre_init.c.obj (.text:_system_pre_init)
-                  0000c600    00000002                            : startup.c.obj (.text:_system_post_cinit)
+.text      0    0000c442    00000186     
+                  0000c442    00000084     main.obj (.text:main)
+                  0000c4c6    0000006a     rts430x_lc_sd_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit_hold_wdt:__TI_auto_init_nobinit_nopinit_hold_wdt)
+                  0000c530    0000003e                            : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  0000c56e    0000001c                            : boot.c.obj (.text:_isr:_c_int00_noargs)
+                  0000c58a    00000016     main.obj (.text:UARTSendArray)
+                  0000c5a0    00000014     main.obj (.text:_isr:USCI_A0_ISR)
+                  0000c5b4    00000008     rts430x_lc_sd_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
+                  0000c5bc    00000006                            : exit.c.obj (.text:abort)
+                  0000c5c2    00000004                            : pre_init.c.obj (.text:_system_pre_init)
+                  0000c5c6    00000002                            : startup.c.obj (.text:_system_post_cinit)
 
 .bss       0    00002000    00000001     UNINITIALIZED
                   00002000    00000001     (.common:data)
@@ -206,9 +205,9 @@ MODULE SUMMARY
        Module                 code   ro data   rw data
        ------                 ----   -------   -------
     .\
-       main.obj               240    42        1      
+       main.obj               174    50        1      
     +--+----------------------+------+---------+---------+
-       Total:                 240    42        1      
+       Total:                 174    50        1      
                                                       
     D:\ti\ccs920\ccs\tools\compiler\ti-cgt-msp430_18.12.3.LTS\lib\rts430x_lc_sd_eabi.lib
        autoinit.c.obj         106    0         0      
@@ -241,7 +240,7 @@ MODULE SUMMARY
        Stack:                 0      0         160    
        Linker Generated:      0      18        0      
     +--+----------------------+------+---------+---------+
-       Grand Total:           456    96        161    
+       Grand Total:           390    104       161    
 
 
 LINKER GENERATED COPY TABLES
@@ -338,7 +337,7 @@ address   name
 00000672  BAKMEM9                                
 00000673  BAKMEM9_H                              
 00000672  BAKMEM9_L                              
-0000c5f6  C$$EXIT                                
+0000c5bc  C$$EXIT                                
 000001c0  CRCDI                                  
 000001c2  CRCDIRB                                
 000001c3  CRCDIRB_H                              
@@ -530,7 +529,6 @@ address   name
 00000308  RTCMOD                                 
 00000309  RTCMOD_H                               
 00000308  RTCMOD_L                               
-0000c528  RxInput                                
 00000100  SFRIE1                                 
 00000101  SFRIE1_H                               
 00000100  SFRIE1_L                               
@@ -621,7 +619,7 @@ address   name
 00000460  TA3EX0                                 
 0000046e  TA3IV                                  
 00000450  TA3R                                   
-0000c5d8  UARTSendArray                          
+0000c58a  UARTSendArray                          
 00000510  UCA0ABCTL                              
 00000506  UCA0BRW                                
 00000507  UCA0BRW_H                              
@@ -731,7 +729,7 @@ address   name
 0000054e  UCB0TXBUF                              
 0000054f  UCB0TXBUF_H                            
 0000054e  UCB0TXBUF_L                            
-0000c5c0  USCI_A0_ISR                            
+0000c5a0  USCI_A0_ISR                            
 000001cc  WDTCTL                                 
 000001cd  WDTCTL_H                               
 000001cc  WDTCTL_L                               
@@ -741,8 +739,8 @@ address   name
 0000c412  __TI_CINIT_Limit                       
 0000c406  __TI_Handler_Table_Base                
 0000c40a  __TI_Handler_Table_Limit               
-0000c5ee  __TI_ISR_TRAP                          
-0000c4be  __TI_auto_init_nobinit_nopinit_hold_wdt
+0000c5b4  __TI_ISR_TRAP                          
+0000c4c6  __TI_auto_init_nobinit_nopinit_hold_wdt
 0000ffda  __TI_int41                             
 0000ffdc  __TI_int42                             
 0000ffde  __TI_int43                             
@@ -764,16 +762,16 @@ address   name
 ffffffff  __TI_pprof_out_hndl                    
 ffffffff  __TI_prof_data_size                    
 ffffffff  __TI_prof_data_start                   
-0000c566  __TI_zero_init_nomemset                
+0000c530  __TI_zero_init_nomemset                
 ffffffff  __c_args__                             
-0000c5a4  _c_int00_noargs                        
+0000c56e  _c_int00_noargs                        
 0000fffe  _reset_vector                          
 00002f60  _stack                                 
-0000c600  _system_post_cinit                     
-0000c5fc  _system_pre_init                       
-0000c5f6  abort                                  
+0000c5c6  _system_post_cinit                     
+0000c5c2  _system_pre_init                       
+0000c5bc  abort                                  
 00002000  data                                   
-0000c43a  main                                   
+0000c442  main                                   
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -1259,18 +1257,17 @@ address   name
 0000c40a  __TI_CINIT_Base                        
 0000c40a  __TI_Handler_Table_Limit               
 0000c412  __TI_CINIT_Limit                       
-0000c43a  main                                   
-0000c4be  __TI_auto_init_nobinit_nopinit_hold_wdt
-0000c528  RxInput                                
-0000c566  __TI_zero_init_nomemset                
-0000c5a4  _c_int00_noargs                        
-0000c5c0  USCI_A0_ISR                            
-0000c5d8  UARTSendArray                          
-0000c5ee  __TI_ISR_TRAP                          
-0000c5f6  C$$EXIT                                
-0000c5f6  abort                                  
-0000c5fc  _system_pre_init                       
-0000c600  _system_post_cinit                     
+0000c442  main                                   
+0000c4c6  __TI_auto_init_nobinit_nopinit_hold_wdt
+0000c530  __TI_zero_init_nomemset                
+0000c56e  _c_int00_noargs                        
+0000c58a  UARTSendArray                          
+0000c5a0  USCI_A0_ISR                            
+0000c5b4  __TI_ISR_TRAP                          
+0000c5bc  C$$EXIT                                
+0000c5bc  abort                                  
+0000c5c2  _system_pre_init                       
+0000c5c6  _system_post_cinit                     
 0000ffda  __TI_int41                             
 0000ffdc  __TI_int42                             
 0000ffde  __TI_int43                             
@@ -1295,4 +1292,4 @@ ffffffff  __TI_prof_data_size
 ffffffff  __TI_prof_data_start                   
 ffffffff  __c_args__                             
 
-[514 symbols]
+[513 symbols]

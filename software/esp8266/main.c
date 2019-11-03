@@ -8,6 +8,8 @@ void UARTSendArray(char TxArray[]);
 
 unsigned char data;     // received char data
 char MyString [25];     // work buffer
+char SSID[8] = "DESKTOP";
+char password[9] = "@x037R06";
 
 int main(void)
 {
@@ -55,7 +57,7 @@ int main(void)
 	UCA0IE |= UCRXIE;           // Enable USCI_A0 RX interrupt
 
 	//wait for input
-	UARTSendArray("Waiting on input: \n");
+	UARTSendArray("AT+CWJAP=DESKTOP,@x037R06\r\n");
 	__bis_SR_register(LPM0_bits | GIE);  // Enter LPM0 CPU off, SMCLK running
 
  return 0;
@@ -71,7 +73,7 @@ __interrupt void USCI_A0_ISR(void)
 //        while(!(UCTXIFG & UCA0IFG));
 //        UCA0TXBUF = UCA0RXBUF;              // Load data onto buffer
         data = UCA0RXBUF;                     // read the received char - also clears Interrupt
-        RxInput();                            // Process the received char
+//        RxInput();                            // Process the received char
         break;
     case USCI_UART_UCTXIFG: break;
     case USCI_UART_UCSTTIFG: break;
